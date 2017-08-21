@@ -1,0 +1,51 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Nintendo Store</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <h1>Administrator Page</h1>
+    </div>
+    <hr />
+    <div class="container body-content">
+        <div class="row">
+            <div class="col-md-2">
+                <nav class="nav-sidebar">
+                    <ul class="nav">
+                        <li>@Html.ActionLink("Categories", "Index", "Categories", null, new { @class = "btn btn-success" })</li>
+                        <li class="nav-divider"></li>
+                        <li>@Html.ActionLink("Products", "Index", "Products", null, new { @class = "btn btn-success" })</li>
+                        <li class="nav-divider"></li>
+                        <li>@Html.ActionLink("Employees", "Index", "Employees", null, new { @class = "btn btn-success" })</li>
+                        <li></li>
+                        <li class="nav-divider"></li>
+                        <li>@Html.ActionLink("Home Page", "Index", "Home", null, new { @class = "btn btn-warning" })</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-8">
+                @RenderBody()
+            </div>
+        </div>
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Ali's Nintendo Store</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

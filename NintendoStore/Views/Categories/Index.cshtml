@@ -1,0 +1,41 @@
+﻿@model IEnumerable<NintendoStore.Models.NintendoCategory>
+
+@{
+    ViewBag.Title = "Administrator";
+    Layout = "~/Views/Shared/ProductsCategories.cshtml";
+}
+
+
+<div>
+    @Html.ActionLink("Add New Category", "Add", null, new { @class = "btn btn-default" })
+</div>
+
+<br />
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th class="text-center">
+                Actions
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    @Html.DisplayFor(w => item.CategoryName)
+                </td>
+                <td class="text-center">
+                    <ul class="list-inline">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }, new { @class="btn btn-default" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId}, new { @class="btn btn-danger"})
+                    </ul>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

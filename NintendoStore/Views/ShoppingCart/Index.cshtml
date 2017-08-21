@@ -1,0 +1,64 @@
+﻿@model IEnumerable<NintendoStore.Models.NintendoProduct>
+@{
+    ViewBag.Title = "Your Basket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Your Shopping Basket</h1>
+<br />
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:50%; font-size: 1.3em;">Product</th>
+                <th style="width:10%; font-size: 1.3em;">Price</th>
+                <th style="width:8%; font-size: 1.3em;">Quantity</th>
+                <th style="width:22%; font-size: 1.3em;" class="text-center">Subtotal</th>
+                <th style="width:10%; font-size: 1.3em;"></th>
+            </tr>
+        </thead>
+        @{ double sumOfCart = 0; }
+        @if(Session["cart"] != null) {
+         foreach (NintendoStore.Controllers.Item item in (List<NintendoStore.Controllers.Item>)Session["cart"])
+        {
+            double subTotal = Convert.ToDouble(item.Quantity) * Convert.ToDouble(item.Product.Price);
+            sumOfCart += subTotal;
+            <tbody>
+                <tr>
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-2 hidden-xs"><img src="@item.Product.Picture" alt="..." class="img-responsive" style="font-size:1.2em;" /></div>
+                            <div class="col-sm-10">
+                                <h4>&nbsp;</h4>
+                                <h4 class="nomargin" style="font-size:1.2em;">@item.Product.ProductName</h4>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Price" style="font-size:1.2em;">£@item.Product.Price</td>
+                    <td data-th="Quantity">
+                        <h5 class="text-center" style="font-size:1.2em;">@item.Quantity</h5>
+                    </td>
+                    <td data-th="Subtotal" class="text-center" style="font-size:1.2em;">£@(item.Product.Price * item.Quantity)</td>
+                    <td class="actions" data-th="">
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        @Html.ActionLink(" ", "Remove", "ShoppingCart", new { id = item.Product.ProductId }, new { @class = "fa fa-trash-o btn btn-danger btn-sm" })
+                    </td>
+                </tr>
+            </tbody>
+
+        }
+        }
+        <tfoot>
+            <tr class="visible-xs">
+                <td class="text-center"><strong>Total: @sumOfCart</strong></td>
+            </tr>
+            <tr>
+                <td>@Html.ActionLink("< Continue Shopping", "Index", "ProductsDisplay", null, new { @class = "btn btn-warning", style = "text-decoration: none;" })</td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center" style="font-size: 1.3em;"><strong>Total: £@sumOfCart</strong></td>                
+                <td>@Html.ActionLink("Checkout now >", "Checkout", null, new { @class = "btn btn-success", style = "text-decoration: none;" })</td>
+            </tr>
+        </tfoot>
+
+    </table>
+</div>

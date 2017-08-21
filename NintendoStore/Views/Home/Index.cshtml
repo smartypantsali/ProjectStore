@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+   <div class="header1">
+    <h1>Featured Products</h1>
+</div>
+<hr />
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <a href="~/ProductsDisplay/Details/1"><img src="~/Images/splatoon2.jpg" /></a>
+            </div>
+
+            <div class="item">
+                <a href="~/ProductsDisplay/Details/3"><img src="~/Images/BreathofWild.jpg" /></a>
+            </div>
+
+            <div class="item">
+                <a href="~/ProductsDisplay/Details/2"><img src="~/Images/MarioOdyssey.jpg" /></a>
+            </div>
+            
+            <!-- Carousel controls -->
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+<br />
+<div class="container">
+    <div class="col-xs-12 col-md-4"><h3><small><span class="glyphicon glyphicon-fire"></span> &nbsp; Exclusive Products & Offers </small></h3></div>    
+    <div class="col-xs-12 col-md-4"><h3><small><span class="glyphicon glyphicon-fire"></span> &nbsp; Free Delivery over £19.99 </small></h3></div>
+    <div class="col-xs-12 col-md-4"><h3><small><span class="glyphicon glyphicon-fire"></span> &nbsp; 2 Year Extended Warranty  </small></h3></div>
+</div>

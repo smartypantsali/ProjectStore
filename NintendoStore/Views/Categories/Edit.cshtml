@@ -1,0 +1,35 @@
+﻿@model NintendoStore.Models.NintendoCategory
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/ProductsCategories.cshtml";
+}
+
+<h2>Edit category</h2>
+
+<hr />
+
+<div class="form-horizontal">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(model => model.CategoryId)
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-offset-1 col-md-11">
+            <input class="btn btn-primary" type="submit" value="Save Changes" />
+            @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>
+

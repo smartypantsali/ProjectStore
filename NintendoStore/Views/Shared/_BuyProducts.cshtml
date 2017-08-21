@@ -1,0 +1,24 @@
+﻿@model NintendoStore.Models.NintendoProduct
+
+<div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <a href="@Url.Action("Details", "ProductsDisplay", new { id = Model.ProductId })">
+                    <img src="@Url.Content(Model.Picture)"
+                         alt="No image found"
+                         class="img-responsive img-thumbnail buyProducts-summary" />
+                </a>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div>
+                            <h4 class="text-center">@Html.ActionLink(Model.ProductName, "Details", "ProductsDisplay", new { id = Model.ProductId }, null)</h4>
+                        </div>                        
+                        <h4 class="text-center">@Html.DisplayFor(modelItem => Model.Price, new { currentFilter = ViewBag.CurrentFilter })</h4>
+                        <h4 class="text-center">@Html.ActionLink("Add To Basket", "Order", "ShoppingCart", new { id = Model.ProductId }, new { @class = "btn btn-success" })</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

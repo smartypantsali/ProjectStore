@@ -1,0 +1,33 @@
+﻿@model NintendoStore.Models.NintendoProduct
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/ProductsCategories.cshtml";
+}
+
+<h2>Are you sure you want to delete this product?</h2>
+
+<hr />
+
+<div class="form-horizontal">
+    
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <input class="btn btn-danger" type="submit" value="Delete Category" />
+        <span class="btn btn-default">
+            @Html.ActionLink("Cancel", "Index")
+        </span>
+    }
+</div>

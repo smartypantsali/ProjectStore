@@ -1,0 +1,72 @@
+﻿@model PagedList.IPagedList<NintendoStore.Models.NintendoProduct>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/ProductsCategories.cshtml";
+}
+
+<div>
+    @Html.ActionLink("Add New Product", "Add", null, new { @class = "btn btn-default" })
+</div>
+
+<br />
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th class="text-center">
+                Image
+            </th>
+            <th class="text-center">
+                Product Name
+            </th>
+            <th class="text-center">
+                Category
+            </th>
+            <th class="text-center">
+                Description
+            </th>
+            <th class="text-center">
+                Price
+            </th>
+            <th class="text-center">
+                Actions
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">
+                    <img src="@Url.Content(item.Picture)" height="100"/>
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.NintendoCategory.CategoryName)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td class="text-center">
+                    <ul class="list-inline">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }, new { @class = "btn btn-default" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProductId }, new { @class = "btn btn-danger" })
+                    </ul>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
