@@ -1,0 +1,211 @@
+﻿
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*Home page*/
+
+.navbar-brand:hover {
+    color:darkred;
+}
+
+.carousel {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.glyphicon-chevron-left {
+    color: red;
+    opacity: 1;    
+}
+
+.glyphicon-chevron-right {
+    color: red;
+    opacity: 1;
+}
+
+.header1 {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 1px;
+}
+
+textarea {
+    min-height: 140px;
+    width: 580px;
+}
+
+.picture {
+    width: 100%;
+    overflow: hidden;
+    text-align: center; 
+}
+
+/*Products*/
+.jumbotron {
+    background-color: aliceblue;
+}
+
+.buyProducts-summary {
+    position: relative;
+    float: left;
+    width: 250px;
+    height: 280px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*Glyphicon CSS*/
+.glyphicon-fire {
+    color:crimson;
+}
+
+
+/*services*/
+.service-bigger{
+    font-size:1.5em;
+}
+
+.glyphicon-logo {
+    color: #f2021a;
+}
+
+.service-image {
+    max-width: 100%;
+}
+
+/*Shopping Cart*/
+.table > tbody > tr > td, .table > tfoot > tr > td {
+    vertical-align: middle;
+}
+
+.navbar-nav.navbar-right .btn {
+    position: relative;
+    z-index: 2;
+    padding: 4px 20px;
+    margin: 10px auto;
+}
+
+.navbar .navbar-collapse {
+    position: relative;
+}
+
+    .navbar .navbar-collapse .navbar-right > li:last-child {
+        padding-left: 22px;
+    }
+
+.navbar .nav-collapse {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding-right: 120px;
+    padding-left: 80px;
+    width: 100%;
+}
+
+.navbar.navbar-default .nav-collapse {
+    background-color: #f8f8f8;
+}
+
+.navbar.navbar-inverse .nav-collapse {
+    background-color: #222;
+}
+
+.navbar .nav-collapse .navbar-form {
+    border-width: 0;
+    box-shadow: none;
+}
+
+.nav-collapse > li {
+    float: right;
+}
+
+@media screen and (max-width: 767px) {
+    .navbar .navbar-collapse .navbar-right > li:last-child {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .navbar .nav-collapse {
+        margin: 7.5px auto;
+        padding: 0;
+    }
+
+        .navbar .nav-collapse .navbar-form {
+            margin: 0;
+        }
+
+    .nav-collapse > li {
+        float: none;
+    }
+}
+@media screen and (max-width: 600px) {
+    #cart tbody td .form-control {
+        width: 20%;        
+    }
+
+    .actions .btn {
+        width: 36%;
+        margin: 1.5em 0;
+    }
+
+    .actions .btn-info {
+        float: left;
+    }
+
+    .actions .btn-danger {
+        float: right;
+    }
+
+    #cart thead {
+        display: none;
+    }
+
+    #cart tbody td {
+        display: block;
+        padding: .6rem;
+        min-width: 320px;
+    }
+
+    #cart tbody tr td:first-child {
+        background: #333;
+        color: #fff;
+    }
+
+    #cart tbody td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 8rem;
+    }
+
+    #cart tfoot td {
+        display: block;
+    }
+
+        #cart tfoot td .btn {
+            display: block;
+        }
+}
